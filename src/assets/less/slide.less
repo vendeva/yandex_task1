@@ -127,14 +127,14 @@
                 padding-top: 20px;
             }
         }
-        &__prev,
-        &__next {
+        &__arrow {
             position: absolute;
             width: 64px;
             height: 64px;
             left: 50%;
             transform: translateX(-50%);
             cursor: pointer;
+            background-size: 100%;
         }
     }
 }
@@ -383,21 +383,15 @@
             }
         }
 
-        .slide__prev {
-            background: url("../images/button-light.svg");
-            transform: translateX(-50%) rotate(180deg);
-            background-size: 100%;
-        }
-
-        .slide__next {
-            background: url("../images/button-light.svg");
-            background-size: 100%;
-        }
-
-        .slide__prev:hover,
-        .slide__next:hover {
-            background: url("../images/button-hover-light.svg");
-            background-size: 100%;
+        .slide__arrow {
+            background-image: url("../images/button-light.svg");
+            &_active,
+            &:hover {
+                background-image: url("../images/button-hover-light.svg");
+            }
+            &_prev {
+                transform: translateX(-50%) rotate(180deg);
+            }
         }
     }
 
@@ -595,21 +589,15 @@
             }
         }
 
-        .slide__prev {
-            background: url("../images/button-dark.svg");
-            transform: translateX(-50%) rotate(180deg);
-            background-size: 100%;
-        }
-
-        .slide__next {
-            background: url("../images/button-dark.svg");
-            background-size: 100%;
-        }
-
-        .slide__prev:hover,
-        .slide__next:hover {
-            background: url("../images/button-hover-dark.svg");
-            background-size: 100%;
+        .slide__arrow {
+            background-image: url("../images/button-dark.svg");
+            &_active,
+            &:hover {
+                background-image: url("../images/button-hover-dark.svg");
+            }
+            &_prev {
+                transform: translateX(-50%) rotate(180deg);
+            }
         }
     }
 
@@ -692,11 +680,11 @@
                     }
 
                     &_three:before {
-                        .dark-legend-three;
+                        .dark-three;
                     }
 
                     &_four:before {
-                        .dark-legend-four;
+                        .dark-four;
                     }
                 }
             }

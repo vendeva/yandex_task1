@@ -57,7 +57,7 @@ function renderTemplateUsers(data) {
     return users
         .reduce((acc, item, i) => {
             icon = !i ? emoji : item.id === selectedUserId ? "👍" : "";
-            if (i <= 4) {
+            if (i <= 3) {
                 acc = [
                     ...acc,
                     `<div class="item-column">
@@ -65,7 +65,7 @@ function renderTemplateUsers(data) {
                             <div class="item-column__column title">${i + 1}</div>
                         </div>`,
                 ];
-            } else if (i > 4 && icon === "👍") {
+            } else if (i > 3 && icon === "👍") {
                 acc.pop();
                 acc = [
                     ...acc,
@@ -84,7 +84,7 @@ function renderTemplateVoteUsers(data, vote = false) {
     const { emoji, selectedUserId, offset, users } = data;
     const usersOnScreen = window.innerWidth > window.innerHeight ? 6 : 8;
     const startIndex = offset ? offset : 0;
-    const modifyUsers = users.slice(startIndex, startIndex + usersOnScreen);
+    const modifyUsers = users.slice(startIndex, startIndex + 8);
     let prevIndex = startIndex - usersOnScreen;
     let nextIndex = startIndex + usersOnScreen;
     if (prevIndex < 0) {
@@ -94,11 +94,9 @@ function renderTemplateVoteUsers(data, vote = false) {
         nextIndex = null;
     }
 
-    console.log(prevIndex);
-    console.log(nextIndex);
     const htmlUsers = modifyUsers
         .reduce((acc, item, i) => {
-            const icon = item.id === selectedUserId ? emoji : "";
+            const icon = item.id === selectedUserId ? "👍" : "";
             if (vote || (!vote && i < 2)) {
                 acc = [...acc, renderTemplateUser(item, icon, vote)];
             }
@@ -107,8 +105,8 @@ function renderTemplateVoteUsers(data, vote = false) {
         .join("");
     return `${htmlUsers}${
         vote
-            ? `<div class="slide__prev" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${prevIndex}\"  }}'></div>
-        <div class="slide__next" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${nextIndex}\"  }}'></div>`
+            ? `<div class="slide__arrow slide__arrow_prev" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${prevIndex}\"  }}'></div>
+        <div class="slide__arrow  slide__arrow_next" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${nextIndex}\"  }}'></div>`
             : ""
     }`;
 }
