@@ -12,7 +12,6 @@ module.exports = (env, options) => {
         entry: {
             index: ["./src/index.ts", "./src/assets/less/style.less"],
         },
-        devtool: "inline-source-map",
         devServer: { contentBase: "./build" },
         plugins: [
             new CleanWebpackPlugin(),
@@ -26,7 +25,7 @@ module.exports = (env, options) => {
                 favicon: "src/assets/images/1x/favicon-m-light.png",
             }),
             new MiniCssExtractPlugin({
-                filename: "stories.[contenthash:8].css",
+                filename: "stories.css",
             }),
         ],
         module: {
