@@ -224,7 +224,11 @@ function renderTemplateActivity(data) {
                 </div>
             </div>
             <div class="legend">
-                <div class="legend__color legend__color_size"></div>                
+                <div class="legend__color legend__color_size">
+                    <div class="legend__segment"></div>
+                    <div class="legend__segment"></div>
+                    <div class="legend__segment"></div>
+                </div>                
                 <div class="legend__color legend__color_min"></div>
                 <div class="legend__color legend__color_mid"></div>
                 <div class="legend__color legend__color_max"></div>

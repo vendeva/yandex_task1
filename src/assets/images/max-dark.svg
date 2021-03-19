@@ -9,7 +9,7 @@
 <g filter="url(#filter1_dif)">
 <path d="M34 43.0117V12.9883C34 12.3654 33.7097 11.778 33.2149 11.3996L17 -1V57L33.2149 44.6004C33.7097 44.222 34 43.6346 34 43.0117Z" fill="url(#paint2_radial)"/>
 </g>
-<g filter="url(#filter2_iif)"  style="shape-rendering: crispedges;">
+<g filter="url(#filter2_iif)">
 <path d="M17 -1L0 12L14.5702 23.1419C16.0044 24.2387 17.9956 24.2387 19.4298 23.1419L34 12L17 -1Z" fill="url(#paint3_radial)" fill-opacity="0.8"/>
 </g>
 </g>
@@ -61,7 +61,7 @@
 <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
 <feColorMatrix type="matrix" values="0 0 0 0 0.922292 0 0 0 0 0.60255 0 0 0 0 0.0485417 0 0 0 0.5 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
-<feGaussianBlur stdDeviation="0.5" result="effect3_foregroundBlur"/>
+<feGaussianBlur stdDeviation="0.8" result="effect3_foregroundBlur"/>
 </filter>
 <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(25.3053 42.989) rotate(-109.233) scale(70.4297 2348.99)">
 <stop/>

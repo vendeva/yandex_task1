@@ -32,7 +32,7 @@ if (currentTheme) {
         createThemeSelector(state$).subscribe((theme) => {
             setElementTheme(document.body, theme);
             if (alias === "vote") {
-                setActiveArrow(theme);
+                setActiveArrow(document.body, theme);
             }
         });
     });
@@ -44,7 +44,7 @@ if (alias === "activity" || alias === "vote") {
             setTimeout(() => {
                 document.body.innerHTML = window.renderTemplate(alias, data);
                 if (alias === "vote") {
-                    setActiveArrow(setTheme[`${currentTheme}`]);
+                    setActiveArrow(document.body, setTheme[`${currentTheme}`]);
                 }
             }, 20);
         },
