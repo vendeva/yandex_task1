@@ -62,7 +62,7 @@
 <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
-<feGaussianBlur stdDeviation="0.75" result="effect3_foregroundBlur"/>
+<feGaussianBlur stdDeviation="0.643137" result="effect3_foregroundBlur"/>
 </filter>
 <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2.26266 23.4196) rotate(68.6417) scale(54.5546 31.9803)">
 <stop stop-color="#FFFFFE"/>

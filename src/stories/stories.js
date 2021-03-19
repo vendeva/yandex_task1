@@ -107,7 +107,7 @@ function renderTemplateVoteUsers(data, vote = false) {
         .join("");
     return `${htmlUsers}${
         vote
-            ? `<div class="slide__arrow slide__arrow_prev" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${prevIndex}\"  }}'></div>
+            ? `<div class="slide__arrow slide__arrow_prev slide__arrow_active" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${prevIndex}\"  }}'></div>
         <div class="slide__arrow  slide__arrow_next" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${nextIndex}\"  }}'></div>`
             : ""
     }`;
@@ -154,8 +154,7 @@ function renderTemplateDiagram(data) {
             return acc;
         }, [])
         .join("");
-    return `<div class="slide__diagram">
-                <div class="slide__selectors"></div>
+    return `<div class="slide__diagram">                
                 <svg class="slide__sectors" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 328 328" fill="none">
                     <g>
                     <path d="M321.854 170.788C325.165 170.93 327.975 168.361 327.997 165.047C328.175 137.195 321.255 109.72 307.846 85.2319C294.437 60.7441 275.015 40.1147 251.452 25.2624C248.649 23.4954 244.97 24.4797 243.307 27.3458L224.635 59.5201C222.972 62.3861 223.956 66.0446 226.732 67.8554C242.543 78.172 255.595 92.2486 264.692 108.862C273.789 125.476 278.62 144.054 278.795 162.933C278.826 166.247 281.378 169.047 284.688 169.19L321.854 170.788Z"  fill-opacity="0.6"/>

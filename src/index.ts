@@ -1,7 +1,7 @@
 import { actionSetTheme } from "./application/actions";
 import { createState } from "./application/state";
 import { createThemeSelector } from "./application/selectors";
-import { setElementTheme, setActiveArrow } from "./application/view";
+import { setElementTheme } from "./application/view";
 import { Theme } from "./application/types";
 
 import dataJson from "./data/data.json";
@@ -31,23 +31,18 @@ if (currentTheme) {
         dispatch(actionSetTheme(setTheme[`${currentTheme}`]));
         createThemeSelector(state$).subscribe((theme) => {
             setElementTheme(document.body, theme);
-            if (alias === "vote") {
-                setActiveArrow(document.body, theme);
-            }
         });
     });
 }
-if (alias === "activity" || alias === "vote") {
-    window.addEventListener(
-        "orientationchange",
-        function () {
+
+window.addEventListener(
+    "orientationchange",
+    function () {
+        if (alias === "activity" || alias === "vote") {
             setTimeout(() => {
                 document.body.innerHTML = window.renderTemplate(alias, data);
-                if (alias === "vote") {
-                    setActiveArrow(document.body, setTheme[`${currentTheme}`]);
-                }
             }, 20);
-        },
-        false
-    );
-}
+        }
+    },
+    false
+);
