@@ -58,7 +58,6 @@ function renderTemplateUsers(data) {
         .reduce((acc, item, i) => {
             icon = !i ? emoji : item.id === selectedUserId ? "👍" : "";
             if (i <= 4) {
-                console.log(i);
                 acc = [
                     ...acc,
                     `<div class="item-column">
@@ -116,13 +115,24 @@ function renderTemplateVoteUsers(data, vote = false) {
 function renderTemplateChart(data) {
     const { values } = data;
     const index = values.findIndex((item) => item.active);
-    const itemActive = values.find((item) => item.active);
+    const valuesSortDesc = values.slice(0, index + 3).slice(-9);
+    valuesSortDesc.sort((a, b) => {
+        const c = Number(a["value"]);
+        const d = Number(b["value"]);
+        if (c > d) {
+            return -1;
+        }
+        if (d > c) {
+            return 1;
+        }
+        return 0;
+    });
     const modifyValues = values.slice(0, index + 3).slice(-9);
     return modifyValues
         .reduce((acc, item) => {
             const { title, value, active } = item;
             const chartItem = `<div class="item-chart ${active ? "item-chart_active" : ""} ${!value ? "item-chart_zero" : ""}" 
-            ${!value ? "" : `style="grid-template-rows: 1fr calc(${value / itemActive.value}*(70% - 30px) + 30px) 18px"`}
+            ${!value ? "" : `style="grid-template-rows: 1fr calc(${value / valuesSortDesc[0].value}*(70% - 30px) + 30px) 18px"`}
             >
                 <div class="item-chart__block">
                     ${value ? `<div class="item-chart__value">${value}</div>` : ""}
