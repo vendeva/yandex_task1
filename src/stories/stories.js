@@ -152,7 +152,7 @@ function renderTemplateDiagram(data) {
         .reduce((acc, item, i) => {
             let { title, valueText, differenceText } = item;
             valueText = valueText.match(/\d+/g);
-            differenceText = differenceText.match(/[/+\d]+/g);
+            differenceText = differenceText.match(/^([/+]|[-])?\d+/g);
             const legendItem = `<div class="item-legend item-legend_${modifyClasses[i]}">
                                     <div class="item-legend__code">${title}</div>
                                     <div class="item-legend__value">${differenceText}</div>
