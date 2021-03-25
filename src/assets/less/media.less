@@ -308,6 +308,7 @@
         .slide {
             &__block {
                 position: relative;
+                grid-template-rows: 1fr 27.457%;
             }
 
             &__chart {
@@ -330,6 +331,8 @@
                 grid-row-gap: 34px;
                 align-self: flex-end;
                 margin-bottom: 24px;
+                height: calc(100% - 48px);
+                grid-row: 2;
 
                 .item-dev {
                     &__img {

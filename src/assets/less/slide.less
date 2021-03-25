@@ -438,36 +438,18 @@
         .slide {
             &__diagram {
                 .slide__sectors {
-                    g:nth-child(1) {
-                        filter: url(#light-filter1);
-
-                        path {
-                            fill: url(#light-gradient1);
-                        }
+                    circle:nth-child(1) {
+                        stroke: url(#light-gradient1);
                     }
 
-                    g:nth-child(2) {
-                        filter: url(#light-filter2);
-
-                        path {
-                            fill: url(#light-gradient2);
-                        }
+                    circle:nth-child(2) {
+                        stroke: url(#light-gradient2);
                     }
-
-                    g:nth-child(3) {
-                        filter: url(#light-filter3);
-
-                        path {
-                            fill: url(#light-gradient3);
-                        }
+                    circle:nth-child(3) {
+                        stroke: url(#light-gradient3);
                     }
-
-                    g:nth-child(4) {
-                        filter: url(#light-filter4);
-
-                        path {
-                            fill: url(#light-gradient4);
-                        }
+                    circle:nth-child(4) {
+                        stroke: url(#light-gradient4);
                     }
                 }
             }
@@ -643,36 +625,22 @@
         .slide {
             &__diagram {
                 .slide__sectors {
-                    g:nth-child(1) {
+                    circle:nth-child(1) {
                         filter: url(#dark-filter1);
-
-                        path {
-                            fill: url(#dark-gradient1);
-                        }
+                        stroke: url(#dark-gradient1);
                     }
 
-                    g:nth-child(2) {
+                    circle:nth-child(2) {
                         filter: url(#dark-filter2);
-
-                        path {
-                            fill: url(#dark-gradient2);
-                        }
+                        stroke: url(#dark-gradient2);
                     }
-
-                    g:nth-child(3) {
+                    circle:nth-child(3) {
                         filter: url(#dark-filter3);
-
-                        path {
-                            fill: url(#dark-gradient3);
-                        }
+                        stroke: url(#dark-gradient3);
                     }
-
-                    g:nth-child(4) {
+                    circle:nth-child(4) {
                         filter: url(#dark-filter4);
-
-                        path {
-                            fill: url(#dark-gradient4);
-                        }
+                        stroke: url(#dark-gradient4);
                     }
                 }
             }

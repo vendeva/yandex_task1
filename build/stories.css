@@ -618,29 +618,17 @@ svg:not(:root) {
 .theme_light .chart .slide__users:after {
   background: #bfbfbf;
 }
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(1) {
-  filter: url(#light-filter1);
+.theme_light .diagram .slide__diagram .slide__sectors circle:nth-child(1) {
+  stroke: url(#light-gradient1);
 }
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(1) path {
-  fill: url(#light-gradient1);
+.theme_light .diagram .slide__diagram .slide__sectors circle:nth-child(2) {
+  stroke: url(#light-gradient2);
 }
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(2) {
-  filter: url(#light-filter2);
+.theme_light .diagram .slide__diagram .slide__sectors circle:nth-child(3) {
+  stroke: url(#light-gradient3);
 }
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(2) path {
-  fill: url(#light-gradient2);
-}
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(3) {
-  filter: url(#light-filter3);
-}
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(3) path {
-  fill: url(#light-gradient3);
-}
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(4) {
-  filter: url(#light-filter4);
-}
-.theme_light .diagram .slide__diagram .slide__sectors g:nth-child(4) path {
-  fill: url(#light-gradient4);
+.theme_light .diagram .slide__diagram .slide__sectors circle:nth-child(4) {
+  stroke: url(#light-gradient4);
 }
 .theme_light .diagram .slide__innersubtitle {
   color: #bfbfbf;
@@ -762,29 +750,21 @@ svg:not(:root) {
 .theme_dark .chart .slide__users:after {
   background: #918f8a;
 }
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(1) {
+.theme_dark .diagram .slide__diagram .slide__sectors circle:nth-child(1) {
   filter: url(#dark-filter1);
+  stroke: url(#dark-gradient1);
 }
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(1) path {
-  fill: url(#dark-gradient1);
-}
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(2) {
+.theme_dark .diagram .slide__diagram .slide__sectors circle:nth-child(2) {
   filter: url(#dark-filter2);
+  stroke: url(#dark-gradient2);
 }
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(2) path {
-  fill: url(#dark-gradient2);
-}
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(3) {
+.theme_dark .diagram .slide__diagram .slide__sectors circle:nth-child(3) {
   filter: url(#dark-filter3);
+  stroke: url(#dark-gradient3);
 }
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(3) path {
-  fill: url(#dark-gradient3);
-}
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(4) {
+.theme_dark .diagram .slide__diagram .slide__sectors circle:nth-child(4) {
   filter: url(#dark-filter4);
-}
-.theme_dark .diagram .slide__diagram .slide__sectors g:nth-child(4) path {
-  fill: url(#dark-gradient4);
+  stroke: url(#dark-gradient4);
 }
 .theme_dark .diagram .slide__innersubtitle {
   color: #918f8a;
@@ -1101,6 +1081,7 @@ svg:not(:root) {
   }
   .chart .slide__block {
     position: relative;
+    grid-template-rows: 1fr 27.457%;
   }
   .chart .slide__chart {
     min-height: 72.545%;
@@ -1118,6 +1099,8 @@ svg:not(:root) {
     grid-row-gap: 34px;
     align-self: flex-end;
     margin-bottom: 24px;
+    height: calc(100% - 48px);
+    grid-row: 2;
   }
   .chart .slide__users .item-dev__img {
     width: 12.196%;
