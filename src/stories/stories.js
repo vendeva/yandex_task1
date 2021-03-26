@@ -39,7 +39,7 @@ function renderTemplate(alias, data) {
 function renderTemplateUser(user, icon, vote = false) {
     const { id, name, avatar, valueText } = user;
     const modifyClass = icon && vote ? "item-dev_active" : "";
-    const updateParams = vote ? `data-action="update" data-params='{ \"alias\": \"leaders\", \"data\": { \"selectedUserId\": \"${id}\"  }}'` : "";
+    const updateParams = vote ? `data-action="update" data-params='{ \"alias\": \"leaders\", \"data\": { \"selectedUserId\": ${id}  }}'` : "";
     return `<div class="item-dev ${modifyClass}" ${updateParams}>
                 <div class="item-dev__img">
                     <img src="img/3x/${avatar}">
