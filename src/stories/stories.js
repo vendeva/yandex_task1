@@ -84,7 +84,6 @@ function renderTemplateUsers(data) {
 function renderTemplateVoteUsers(data, vote = false) {
     const { emoji, selectedUserId, offset, users } = data;
     const usersOnScreen = window.innerWidth > window.innerHeight ? 6 : 8;
-    console.log(offset);
     const startIndex = offset ? offset : 0;
     const modifyUsers = users.slice(startIndex, startIndex + 8);
     let prevIndex = startIndex - usersOnScreen;
