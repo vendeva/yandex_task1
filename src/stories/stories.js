@@ -84,17 +84,19 @@ function renderTemplateUsers(data) {
 function renderTemplateVoteUsers(data, vote = false) {
     const { emoji, selectedUserId, offset, users } = data;
     const usersOnScreen = window.innerWidth > window.innerHeight ? 6 : 8;
+    console.log(offset);
     const startIndex = offset ? offset : 0;
     const modifyUsers = users.slice(startIndex, startIndex + 8);
     let prevIndex = startIndex - usersOnScreen;
     let nextIndex = startIndex + usersOnScreen;
-    if (prevIndex < 0) {
+    if (prevIndex < 0 && prevIndex > -usersOnScreen) {
+        prevIndex = 0;
+    } else if (prevIndex <= -usersOnScreen) {
         prevIndex = null;
     }
-    if (nextIndex > users.length) {
+    if (nextIndex >= users.length) {
         nextIndex = null;
     }
-
     const htmlUsers = modifyUsers
         .reduce((acc, item, i) => {
             const icon = item.id === selectedUserId ? "👍" : "";
@@ -106,8 +108,10 @@ function renderTemplateVoteUsers(data, vote = false) {
         .join("");
     return `${htmlUsers}${
         vote
-            ? `<div class="slide__arrow slide__arrow_prev slide__arrow_active" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${prevIndex}\"  }}'></div>
-        <div class="slide__arrow  slide__arrow_next" data-action="update" data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": \"${nextIndex}\"  }}'></div>`
+            ? `<div class="slide__arrow slide__arrow_prev slide__arrow_active" 
+            ${prevIndex !== null ? `data-action='update' data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": ${prevIndex}  }}'` : ""}></div>
+            <div class="slide__arrow  slide__arrow_next" 
+            ${nextIndex !== null ? `data-action='update' data-params='{ \"alias\": \"vote\", \"data\": { \"offset\": ${nextIndex}  }}'` : ""}></div>`
             : ""
     }`;
 }
