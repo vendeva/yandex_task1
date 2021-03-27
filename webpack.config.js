@@ -84,5 +84,7 @@ module.exports = (env, options) => {
         optimization: {
             minimizer: [new CssMinimizerPlugin()],
         },
+        //чтобы в режиме dev был активен HMR
+        target: prodMode ? "browserslist" : "web",
     };
 };
