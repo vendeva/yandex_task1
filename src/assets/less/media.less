@@ -455,12 +455,6 @@
                 }
             }
         }
-
-        @media (orientation: landscape) {
-            .slide__block {
-                width: 89%;
-            }
-        }
     }
 
     .vote {
@@ -475,8 +469,7 @@
                 }
             }
         }
-        .slide__prev,
-        .slide__next {
+        .slide__arrow {
             width: 45px;
             height: 45px;
         }
@@ -492,7 +485,17 @@
             }
         }
     }
+    .diagram {
+        .slide__legend .item-legend {
+            grid-template-columns: 1fr auto auto;
+        }
+    }
     @media (orientation: landscape) {
+        .leaders {
+            .slide__block {
+                width: 89%;
+            }
+        }
         .vote {
             grid-template-rows: 1fr 82%;
             .slide__block {
@@ -520,6 +523,9 @@
             grid-template-rows: 1fr 90%;
             .slide__chart {
                 min-height: 70%;
+            }
+            .slide__users {
+                height: calc(100% - 30px);
             }
         }
         .diagram {
@@ -604,6 +610,9 @@
                 .item-dev__img {
                     width: 25%;
                 }
+            }
+            @media (orientation: portrait) {
+                height: calc(100% - 40px);
             }
             .item-dev__info {
                 padding-left: 30px;
